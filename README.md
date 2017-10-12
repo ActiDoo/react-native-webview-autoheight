@@ -27,6 +27,7 @@ const htmlContent = "<h1>This is title</h1><p>Throw your entire HTML here</p>";
 
 ```
 <MyWebView
+    webViewRef={(ref) => { this.webview = ref; }}
     source={{uri: 'http://example.com/helloworld.html'}}
     startInLoadingState={true}
 />
@@ -35,6 +36,7 @@ const htmlContent = "<h1>This is title</h1><p>Throw your entire HTML here</p>";
 
 ## Props
 * Same as https://facebook.github.io/react-native/docs/webview.html#props
+* `webViewRef` receive the ref of the original WebWiev to call functions like stopLoading() or reload()
 * `autoHeight` (default: true)
 * `width` (default: Screen width)
 * `defaultHeight` (default height unless autoHeight)
@@ -44,4 +46,3 @@ It is a very simple wrapper around the built-in React Native Webview, which upda
 
 
 ### Feel free to add issues or feature requests
-
