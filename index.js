@@ -46,6 +46,7 @@ export default class MyWebView extends Component {
 
   static defaultProps = {
       autoHeight: true,
+      webViewRef: (ref) => {this.webView = ref}
   }
 
   constructor (props: Object) {
@@ -68,6 +69,7 @@ export default class MyWebView extends Component {
     const _h = this.props.autoHeight ? this.state.webViewHeight : this.props.defaultHeight;
     return (
       <WebView
+        ref={(ref) => { this.props.webViewRef(ref) }}
         injectedJavaScript={'(' + String(injectedScript) + ')();'}
         scrollEnabled={this.props.scrollEnabled || false}
         onMessage={this._onMessage}
