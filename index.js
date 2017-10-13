@@ -33,7 +33,11 @@ const injectedScript = function() {
       {
         height = document.body.clientHeight
       }
-      postMessage(height)
+      if(height == 0){
+        setTimeout(waitForBridge, 200);
+      }else{
+        postMessage(height)
+      }
     }
   }
   waitForBridge();
